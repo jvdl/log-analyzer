@@ -1,33 +1,36 @@
-import clfParse from 'clf-parser';
-import './App.scss'
-
-
-const file = `
-`;
-
-const lines = file.split('\n').filter(Boolean);
-const parsedLog = lines
-  .map(clfParse)
-  .map(({ remote_addr, status, body_bytes_sent, method, path, protocol }) => ({ remote_addr, status, body_bytes_sent, method, path, protocol }));
-  console.log(parsedLog);
-// console.table(lines.map(clfParse).map(({ remote_addr, status, body_bytes_sent, method, path, protocol }) => ({ remote_addr, status, body_bytes_sent, method, path, protocol })))
+import { useState } from 'react';
+import { BrowseLog } from './components/BrowseLog';
+import { AnalyticsSummary } from './components/AnalyticsSummary';
+import { UploadLog } from './components/UploadLog';
+import type { Analytics } from './types/log';
+import { parseLog } from './util/analyze';
+import './App.scss';
 
 function App() {
+  const [logLines, setLogLines] = useState<string[]>([]);
+  const [analytics, setAnalytics] = useState<Analytics|null>(null);
+  const onUpload = (fileContent: string | null) => {
+    // reset state
+    setAnalytics(null);
+    setLogLines([]);
 
+    if (!fileContent) {
+      return;
+    }
+
+    const lines = fileContent.split('\n').filter(Boolean);
+    setLogLines(lines);
+    setAnalytics( parseLog(lines) );
+
+  };
   return (
     <>
       <h1>Log Parser</h1>
-
-      <h2>Browse the raw log</h2>
-      <div className="raw-log">
-        <pre>
-          {lines.map((line, index) => (
-            <kbd key={index}>{line.trimStart()}{'\n'}</kbd>
-          ))}
-        </pre>
-      </div>
+      <UploadLog onUpload={onUpload} />
+      <AnalyticsSummary analytics={analytics} />
+      <BrowseLog logLines={logLines} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

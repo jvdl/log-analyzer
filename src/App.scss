@@ -1,7 +1,6 @@
-:root {
-  --main-content-padding: 2rem;
-}
+
 #root {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: var(--main-content-padding);
@@ -15,4 +14,31 @@
   min-height: 200px;
   max-height: 70vh;
   resize: vertical;
+  padding: var(--content-item-padding);
+  border-radius: --border-radius;
+  // these transparent values work well for both light and dark mode
+  background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.2)
+}
+
+.upload {
+  display: flex;
+  place-items: center;
+}
+
+.form-error {
+  --foreground-color: #e99;
+  --background-color: #cc666616;
+  color: var(--foreground-color);
+  background-color: var(--background-color);
+  padding: var(--content-item-padding);
+  margin: 0.5rem 0 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--foreground-color);
+}
+
+@media (prefers-color-scheme: light) {
+  .form-error {
+    --foreground-color: #e00;
+  }
 }

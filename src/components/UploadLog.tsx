@@ -11,6 +11,7 @@ export function UploadLog({ onUpload }: { onUpload: (content: string) => void}) 
   const onParse = async () => {
     // reset state
     setFileError(null);
+    console.log(fileInputRef);
     if (!fileInputRef.current) {
       setFileError('No file input');
       return;

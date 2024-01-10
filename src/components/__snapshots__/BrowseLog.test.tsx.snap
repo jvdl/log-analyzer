@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BrowseLog > renders correctly with expected data 1`] = `
+[
+  <h2>
+    Browse the raw log
+  </h2>,
+  <small>
+    2
+     lines
+  </small>,
+  <div
+    className="raw-log"
+  >
+    <pre>
+      <code>
+        line 1
+        
+
+      </code>
+      <code>
+        line 2
+        
+
+      </code>
+    </pre>
+  </div>,
+]
+`;

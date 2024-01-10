@@ -21,13 +21,10 @@ import groupBy from 'lodash/groupby';
  * the data at all.
  * @param chunk - a chunk of log lines to parse
  */
-function parseChunk(chunk: string[]) {
-  console.log('parsing chunk', chunk.length, 'lines');
-  // return the parsed chunk
-  const parsedLog = chunk
+export function parseChunk(chunk: string[]) {
+  return chunk
     .map<Log>(clfParse)
     .map<ShortLog>(({ remote_addr, status, body_bytes_sent, method, path, protocol }) => ({ remote_addr, status, body_bytes_sent, method, path, protocol }));
-  return parsedLog;
 }
 
 function sortByCount(a: { count: number }, b: { count: number }) {
@@ -54,7 +51,6 @@ export function parseLog(logLines: string[]): Analytics {
     .sort(sortByCount);
   const countByRemoteAddr = Object.entries<ShortLog[]>(groupedByRemoteAddr).map(([remote_addr, logs]) => ({ remote_addr, count: logs.length }))
   .sort(sortByCount);
-
 
   return {
     groupedByRemoteAddr,

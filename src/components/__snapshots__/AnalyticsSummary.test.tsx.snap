@@ -1,0 +1,171 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AnalyticsSummary > renders correctly with expected data 1`] = `
+[
+  <h2>
+    Analytics summary
+  </h2>,
+  <ul>
+    <li>
+      Number of unique IP addresses: 
+      <strong>
+        5
+      </strong>
+    </li>
+    <li>
+      Top 
+      3
+       IP addresses:
+      <ol>
+        <li>
+          <strong>
+            123.456.789.0
+          </strong>
+           
+          <em>
+            (
+            5
+             requests)
+          </em>
+        </li>
+        <li>
+          <strong>
+            123.456.789.1
+          </strong>
+           
+          <em>
+            (
+            4
+             requests)
+          </em>
+        </li>
+        <li>
+          <strong>
+            123.456.789.2
+          </strong>
+           
+          <em>
+            (
+            3
+             requests)
+          </em>
+        </li>
+      </ol>
+    </li>
+    <li>
+      Top 
+      3
+       most requested paths:
+      <ol>
+        <li>
+          <strong>
+            /path/1
+          </strong>
+           
+          <em>
+            (
+            5
+             requests)
+          </em>
+        </li>
+        <li>
+          <strong>
+            /path/2
+          </strong>
+           
+          <em>
+            (
+            4
+             requests)
+          </em>
+        </li>
+        <li>
+          <strong>
+            /path/3
+          </strong>
+           
+          <em>
+            (
+            3
+             requests)
+          </em>
+        </li>
+      </ol>
+    </li>
+  </ul>,
+]
+`;
+
+exports[`AnalyticsSummary > renders correctly with less than the required number of results 1`] = `
+[
+  <h2>
+    Analytics summary
+  </h2>,
+  <ul>
+    <li>
+      Number of unique IP addresses: 
+      <strong>
+        2
+      </strong>
+    </li>
+    <li>
+      Top 
+      3
+       IP addresses:
+      <ol>
+        <li>
+          <strong>
+            123.456.789.0
+          </strong>
+           
+          <em>
+            (
+            5
+             requests)
+          </em>
+        </li>
+        <li>
+          <strong>
+            123.456.789.1
+          </strong>
+           
+          <em>
+            (
+            4
+             requests)
+          </em>
+        </li>
+      </ol>
+    </li>
+    <li>
+      Top 
+      3
+       most requested paths:
+      <ol>
+        <li>
+          <strong>
+            /path/1
+          </strong>
+           
+          <em>
+            (
+            5
+             requests)
+          </em>
+        </li>
+        <li>
+          <strong>
+            /path/2
+          </strong>
+           
+          <em>
+            (
+            4
+             requests)
+          </em>
+        </li>
+      </ol>
+    </li>
+  </ul>,
+]
+`;

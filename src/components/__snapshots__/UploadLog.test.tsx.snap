@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UploadLog > renders correctly with expected data 1`] = `
+[
+  <h2>
+    Upload your log
+  </h2>,
+  <div
+    className="upload"
+  >
+    <input
+      type="file"
+    />
+    <button
+      className="btn-upload"
+      onClick={[Function]}
+      type="button"
+    >
+      Parse
+    </button>
+  </div>,
+]
+`;

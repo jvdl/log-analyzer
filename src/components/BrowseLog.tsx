@@ -1,9 +1,10 @@
 import { CHUNK_SIZE } from '../util/constants';
 
 export function BrowseLog ({ logLines }: { logLines: string[] }) {
-  if (!logLines.length) {
+  if (!logLines?.length) {
     return null;
   }
+
   return (<>
     <h2>Browse the raw log</h2>
     <small>
@@ -16,7 +17,7 @@ export function BrowseLog ({ logLines }: { logLines: string[] }) {
     <div className="raw-log">
       <pre>
         {logLines.slice(0,CHUNK_SIZE).map((line, index) => (
-          <kbd key={index}>{line.trimStart()}{'\n'}</kbd>
+          <code key={index}>{line.trimStart()}{'\n'}</code>
         ))}
       </pre>
     </div>
